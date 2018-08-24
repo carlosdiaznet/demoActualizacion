@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Demo de actualizacion de listas con ajax</title>
+<h:outputStylesheet name="estilos.css" library="css" />
+</h:head>
+<h:body>
+<h:form>
+	<p:messages />
+	<p:panelGrid columns="2">
+	<f:facet name="header">Registro de personas</f:facet>
+		<p:outputLabel value="Nombre" for="nombre" />
+		<p:inputText required="true" id="nombre" label="Nombre" value="#{calendarioMB.nombre}" />
+		
+		<p:outputLabel value="Email" for="email" />
+		<p:inputText id="email" required="true" value="#{calendarioMB.email}" />
+		
+		<p:outputLabel value="Fecha" />
+		<p:calendar value="#{calendarioMB.fecha}" />
+		
+	<f:facet name="footer">
+		<p:commandButton value="Guardar" icon="ui-icon-disk" iconPos="right" ajax="false" action="#{calendarioMB.registrar()}" />
+	</f:facet>
+	</p:panelGrid>
+	</h:form>
+</h:body>
+</html>
