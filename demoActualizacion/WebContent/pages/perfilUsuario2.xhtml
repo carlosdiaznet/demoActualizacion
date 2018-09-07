@@ -16,7 +16,11 @@
 		<p:panelGrid columns="2">
 			<p:outputLabel value="Nombre" for="nombre" />
 			<p:inputText id="nombre" required="true" value="#{perfilUsuarioMB.nombre}" />	
-			
+			<p:outputLabel value="Asunto sobre:" for="asunto" />
+			<p:inputTextarea id="asunto" cols="40" rows="4" value="#{perfilUsuarioMB.asunto}"
+				autoResize="false" maxlength="160" counter="contador" counterTemplate="Restan {0} caracteres"
+				completeMethod="#{perfilUsuarioMB.completarTexto}" />
+				<h:outputLabel id="contador" />
 		</p:panelGrid>
 		<p:commandButton value="Actualizar" action="#{perfilUsuarioMB.actualizar2}" update="@form" />
 	</h:form>

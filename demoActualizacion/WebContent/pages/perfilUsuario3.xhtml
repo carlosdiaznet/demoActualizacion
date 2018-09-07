@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Demo de actualizacion de listas con ajax</title>
+<h:outputStylesheet name="estilos.css" library="css" />
+<script>
+PrimeFaces.locales['es'] = {
+	    closeText: 'Cerrar',
+	    prevText: 'Anterior',
+	    nextText: 'Siguiente',
+	    monthNames: ['Enero','Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+	    monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
+	    dayNames: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
+	    dayNamesShort: ['Dom','Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+	    dayNamesMin: ['D','L','M','Mi','J','V','S'],
+	    weekHeader: 'Semana',
+	    firstDay: 1,
+	    isRTL: false,
+	    showMonthAfterYear: false,
+	    yearSuffix: '',
+	    timeOnlyTitle: 'Sólo hora',
+	    timeText: 'Tiempo',
+	    hourText: 'Hora',
+	    minuteText: 'Minuto',
+	    secondText: 'Segundo',
+	    currentText: 'Fecha actual',
+	    ampm: false,
+	    month: 'Mes',
+	    week: 'Semana',
+	    day: 'Día',
+	    allDayText : 'Todo el día'
+	};
+</script>
+</h:head>
+<h:body>
+	<h:form id="frm">
+	<p:messages />
+		<p:panelGrid columns="2">
+			<p:outputLabel value="Nombre" for="nombre" />
+			<p:inputText id="nombre" required="true" value="#{perfilUsuarioMB.nombre}" />	
+			<p:outputLabel value="Fecha de nacimiento:" for="fechaNacimiento" />
+			
+			<p:calendar id="fechaNacimiento" required="true" value="#{perfilUsuarioMB.fechaNacimiento}"
+				pattern="dd/MM/yyyy HH:mm:ss" readonlyInput="true" navigator="true" pages="1" mode="popup"
+				maxdate="#{perfilUsuarioMB.fechaHora}" locale="es"/>
+		</p:panelGrid>
+		<p:commandButton value="Actualizar" action="#{perfilUsuarioMB.actualizar3}" update="@form" />
+	</h:form>
+</h:body>
+</html>
