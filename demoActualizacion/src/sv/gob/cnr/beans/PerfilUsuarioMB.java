@@ -54,6 +54,11 @@ public class PerfilUsuarioMB implements Serializable {
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil actualizado!"));
 	}
 	
+	public void actualizar5(){
+		System.out.println("Profesion: " + this.profesion);
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil actualizado!"));
+	}
+	
 	public List<Intereses> getIntereses(){
 		return INTERESES;
 	}
