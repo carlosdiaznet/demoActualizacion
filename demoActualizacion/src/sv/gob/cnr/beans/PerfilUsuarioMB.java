@@ -25,6 +25,9 @@ public class PerfilUsuarioMB implements Serializable {
 		INTERESES.add(new Intereses("Investigacion", "004-investigacion"));
 	}
 	
+	private List<String> estados = new ArrayList<String>();
+	private List<String> ciudades = new ArrayList<String>();
+	
 	private String login;
 	private String password;
 	private String nombre;
@@ -32,7 +35,19 @@ public class PerfilUsuarioMB implements Serializable {
 	private Date fechaNacimiento;
 	private String profesion;
 	private Intereses interes;
+	private String estado;
+	private String ciudad;
+	private String sexo;
+	private String estadoCivil;
 	
+	
+	
+	public PerfilUsuarioMB() {
+		estados.add("SS");
+		estados.add("SM");
+		estados.add("SV");
+	}
+
 	public void actualizar(){
 		System.out.println("Password: " + this.password);
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil actualizado!"));
@@ -56,6 +71,40 @@ public class PerfilUsuarioMB implements Serializable {
 	
 	public void actualizar5(){
 		System.out.println("Profesion: " + this.profesion);
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil actualizado!"));
+	}
+	
+	public void actualizar6(){
+		System.out.println("Intereses: " + this.interes.getDescripcion());
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil actualizado!"));
+	}
+	
+	public void actualizar7(){
+		System.out.println("Estado: " + this.estado);
+		System.out.println("Ciudad: " + this.ciudad);
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil actualizado!"));
+	}
+	
+	public void cargarCiudades(){
+		ciudades.clear();
+		if("SS".equals(estado)){
+			ciudades.add("San Marcos");
+			ciudades.add("Santa Elena");
+			ciudades.add("Escalon");
+		} else if ("SM".equals(estado)){
+			ciudades.add("Arequipe");
+			ciudades.add("Ostuma");
+			ciudades.add("Quezalte");
+		} else if("SV".equals(estado)){
+			ciudades.add("San Vicente");
+			ciudades.add("San Felipe");
+			ciudades.add("Ocote");
+		}
+	}
+	
+	public void actualizar8(){
+		System.out.println("Sexo: " + this.sexo);
+		System.out.println("Estado civil: " + this.estadoCivil);
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil actualizado!"));
 	}
 	
@@ -134,6 +183,54 @@ public class PerfilUsuarioMB implements Serializable {
 
 	public void setInteres(Intereses interes) {
 		this.interes = interes;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public String getCiudad() {
+		return ciudad;
+	}
+
+	public void setCiudad(String ciudad) {
+		this.ciudad = ciudad;
+	}
+
+	public List<String> getEstados() {
+		return estados;
+	}
+
+	public void setEstados(List<String> estados) {
+		this.estados = estados;
+	}
+
+	public List<String> getCiudades() {
+		return ciudades;
+	}
+
+	public void setCiudades(List<String> ciudades) {
+		this.ciudades = ciudades;
+	}
+
+	public String getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+
+	public String getEstadoCivil() {
+		return estadoCivil;
+	}
+
+	public void setEstadoCivil(String estadoCivil) {
+		this.estadoCivil = estadoCivil;
 	}
 	
 	

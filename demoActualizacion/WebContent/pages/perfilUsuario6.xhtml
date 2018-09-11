@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Demo de actualizacion de listas con ajax</title>
+<h:outputStylesheet name="estilos.css" library="css" />
+</h:head>
+<h:body>
+	<h:form id="frm">
+	<p:messages />
+		<p:panelGrid columns="2">
+			<p:outputLabel value="Nombre" for="nombre" />
+			<p:inputText id="nombre" required="true" value="#{perfilUsuarioMB.nombre}" />
+			
+				
+			<p:outputLabel value="Intereses" for="interes" />
+			
+			<p:selectOneMenu id="interes" value="#{perfilUsuarioMB.interes}"
+				 required="true" converter="interes" var="i" filter="true" filterMatchMode="startsWith">
+				 <f:selectItem itemLabel="Seleccione.." />
+				<f:selectItems value="#{perfilUsuarioMB.intereses}" var="i" itemLabel="#{i.descripcion}" itemValue="#{i}" />
+				<p:column>
+					<h:graphicImage library="images" name="png/#{i.nombreIcono}.png" style="width:25px;" />
+				</p:column>
+				<p:column>
+					<h:outputText value="#{i.descripcion}" />
+				</p:column>
+			</p:selectOneMenu>
+				
+		</p:panelGrid>
+		<p:commandButton value="Actualizar" action="#{perfilUsuarioMB.actualizar6}" update="@form" />
+	</h:form>
+</h:body>
+</html>
