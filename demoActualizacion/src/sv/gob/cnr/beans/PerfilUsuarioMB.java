@@ -18,6 +18,7 @@ public class PerfilUsuarioMB implements Serializable {
 	
 	public static final List<Intereses> INTERESES = new ArrayList<Intereses>();
 	
+	
 	static {
 		INTERESES.add(new Intereses("Deportes", "005-pagina"));
 		INTERESES.add(new Intereses("Computacion", "001-controlar"));
@@ -27,6 +28,8 @@ public class PerfilUsuarioMB implements Serializable {
 	
 	private List<String> estados = new ArrayList<String>();
 	private List<String> ciudades = new ArrayList<String>();
+	private List<String> jobies;
+	private List<String> paises = new ArrayList<String>();
 	
 	private String login;
 	private String password;
@@ -39,6 +42,7 @@ public class PerfilUsuarioMB implements Serializable {
 	private String ciudad;
 	private String sexo;
 	private String estadoCivil;
+	private String pais;
 	
 	
 	
@@ -46,6 +50,12 @@ public class PerfilUsuarioMB implements Serializable {
 		estados.add("SS");
 		estados.add("SM");
 		estados.add("SV");
+		paises.add("El Salvador");
+		paises.add("Guatemala");
+		paises.add("Honduras");
+		paises.add("Nicaragua");
+		paises.add("Costa Rica");
+		paises.add("Panama");
 	}
 
 	public void actualizar(){
@@ -106,6 +116,32 @@ public class PerfilUsuarioMB implements Serializable {
 		System.out.println("Sexo: " + this.sexo);
 		System.out.println("Estado civil: " + this.estadoCivil);
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil actualizado!"));
+	}
+	
+	public void actualizar9(){
+		for(String jobie : jobies){
+			System.out.println("Interes: " + jobie);
+		}
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil actualizado!"));
+	}
+	
+	
+	
+	public void actualizar10(){
+		
+			System.out.println("Pais: " + this.pais);
+		
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Perfil actualizado!"));
+	}
+	
+	public List<String> sugerirPaises(String consulta){
+		List<String> paisesSugeridos = new ArrayList<String>();
+		for(String pais : this.paises){
+			if(pais.toLowerCase().startsWith(consulta.toLowerCase())){
+				paisesSugeridos.add(pais);
+			}
+		}
+		return paisesSugeridos;
 	}
 	
 	public List<Intereses> getIntereses(){
@@ -231,6 +267,22 @@ public class PerfilUsuarioMB implements Serializable {
 
 	public void setEstadoCivil(String estadoCivil) {
 		this.estadoCivil = estadoCivil;
+	}
+
+	public List<String> getJobies() {
+		return jobies;
+	}
+
+	public void setJobies(List<String> jobies) {
+		this.jobies = jobies;
+	}
+
+	public String getPais() {
+		return pais;
+	}
+
+	public void setPais(String pais) {
+		this.pais = pais;
 	}
 	
 	
