@@ -7,6 +7,11 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 	<h:head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<style>
+	.cel-radio td {
+		text-align:center;
+	}
+</style>
 <title>Demo de actualizacion de listas con ajax</title>
 <h:outputStylesheet name="estilos.css" library="css" />
 </h:head>
@@ -19,11 +24,29 @@
 			
 				
 			<p:outputLabel value="Sexo" for="sexo" />
-			<p:selectOneRadio id="sexo" value="#{perfilUsuarioMB.sexo}" required="true">
+			<p:selectOneRadio id="sexo" value="#{perfilUsuarioMB.sexo}" required="true" layout="pageDirection">
 				<f:selectItem itemLabel="Femenino" itemValue="F" />
 				<f:selectItem itemLabel="Masculino" itemValue="M" />
 			</p:selectOneRadio>
 			
+			<p:outputLabel value="Estado civil" for="estadoCivil" />
+			<h:panelGroup>
+				<p:selectOneRadio id="estadoCivil" value="#{perfilUsuarioMB.estadoCivil}" required="true" layout="custom">
+					<f:selectItem itemValue="Soltera/o" />
+					<f:selectItem itemValue="Casada/o" />
+					<f:selectItem itemValue="Divorciada/o" />
+				</p:selectOneRadio>
+				
+				<h:panelGrid columns="3" rowClasses="cel-radio">
+					<p:radioButton id="opt1" for="estadoCivil" itemIndex="0"  />
+					<p:radioButton id="opt2" for="estadoCivil" itemIndex="1"  />
+					<p:radioButton id="opt3" for="estadoCivil" itemIndex="2"  />
+					
+					<p:outputLabel value="Soltera/o" for="opt1" />
+					<p:outputLabel value="Casada/o" for="opt2" />
+					<p:outputLabel value="Divorciada/o" for="opt3" />
+				</h:panelGrid>
+			</h:panelGroup>
 		</p:panelGrid>
 		<p:commandButton value="Actualizar" action="#{perfilUsuarioMB.actualizar8}" update="@form" />
 	</h:form>
