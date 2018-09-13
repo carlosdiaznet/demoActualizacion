@@ -12,11 +12,19 @@ public class PaisConverter implements Converter {
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {
 		if(value != null){
-			Integer codigo = Integer.valueOf(value);
+			Integer codigo = null;
+				try{
+					System.out.println("getAsObject: " + value);
+					codigo = Integer.valueOf(value);
+				} catch (NumberFormatException e) {
+					
+				}
+				
 			
 			for(Pais pais : PerfilUsuarioMB.PAISES){
 				if(codigo.equals(pais.getCodigo())){
 					return pais;
+					
 				}
 			}
 		}

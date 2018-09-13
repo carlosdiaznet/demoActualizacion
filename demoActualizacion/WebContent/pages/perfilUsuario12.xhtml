@@ -23,13 +23,19 @@
 			<p:inputText id="nombre" required="true" value="#{perfilUsuarioMB2.nombre}" />
 			
 				
-			<p:outputLabel value="Pais" for="pais" />
-			<p:autoComplete id="pais" value="#{perfilUsuarioMB2.pais}"
-				completeMethod="#{perfilUsuarioMB2.sugerirPaises}" forceSelection="true"
-				converter="paisConverter" var="p" itemLabel="#{p.nombre}" itemValue="#{p}" />
+			<p:outputLabel value="Telefono" for="telefono" />
+			<p:inputMask id="telefono" value="#{perfilUsuarioMB2.telefono}" mask="(999) 9999-9999" required="true" />
+			
+			<p:outputLabel value="Telefono Comercial" for="telefonoComercial" />
+			<p:inputMask id="telefonoComercial" value="#{perfilUsuarioMB2.telefonoComercial}" 
+				mask="(999) 9999-9999? x9999" required="true" />
+				
+			<p:outputLabel value="Matricula" for="matricula" />
+			<p:inputMask id="matricula" value="#{perfilUsuarioMB2.matricula}" mask="aaa*-9999" required="true"
+				placeholder="X" />
 			
 		</p:panelGrid>
-		<p:commandButton value="Actualizar" action="#{perfilUsuarioMB2.actualizar}" update="@form" />
+		<p:commandButton value="Actualizar" action="#{perfilUsuarioMB2.actualizar2}" update="@form" />
 	</h:form>
 </h:body>
 </html>

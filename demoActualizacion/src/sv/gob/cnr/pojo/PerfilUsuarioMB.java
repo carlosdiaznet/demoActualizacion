@@ -28,6 +28,10 @@ public class PerfilUsuarioMB implements Serializable {
 	
 	private String nombre;
 	private Pais pais;
+	private String telefono;
+	private String telefonoComercial;
+	private String matricula;
+	private Boolean acepto;
 	
 	public void actualizar(){
 		if(this.pais == null){
@@ -35,6 +39,19 @@ public class PerfilUsuarioMB implements Serializable {
 		} else {
 			adicionalMensaje("Perfil actualizado con pais: " + this.pais.getNombre() + " (" + this.pais.getCodigo() + ").");
 		}
+	}
+	
+	public void actualizar2(){
+		System.out.println("Telefono: " + this.telefono);
+		System.out.println("Telefono comercial: " + this.telefonoComercial);
+		System.out.println("Matricula: " + this.matricula);
+		this.adicionalMensaje("Perfil actualizado!");
+	}
+	
+	public void actualizar3(){
+		System.out.println("Acepta: " + this.acepto);
+		
+		this.adicionalMensaje("Perfil actualizado!");
 	}
 	
 	private void adicionalMensaje(String msg){
@@ -65,6 +82,38 @@ public class PerfilUsuarioMB implements Serializable {
 
 	public void setPais(Pais pais) {
 		this.pais = pais;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public String getTelefonoComercial() {
+		return telefonoComercial;
+	}
+
+	public void setTelefonoComercial(String telefonoComercial) {
+		this.telefonoComercial = telefonoComercial;
+	}
+
+	public String getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
+
+	public Boolean getAcepto() {
+		return acepto;
+	}
+
+	public void setAcepto(Boolean acepto) {
+		this.acepto = acepto;
 	}
 	
 	

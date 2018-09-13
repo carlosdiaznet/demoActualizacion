@@ -22,14 +22,17 @@
 			<p:outputLabel value="Nombre" for="nombre" />
 			<p:inputText id="nombre" required="true" value="#{perfilUsuarioMB2.nombre}" />
 			
+			<h:panelGroup />
+			
+				<p:selectBooleanCheckbox id="acepto" value="#{perfilUsuarioMB2.acepto}"
+					itemLabel="Acepto los terminios de uso y condiciones" />
 				
-			<p:outputLabel value="Pais" for="pais" />
-			<p:autoComplete id="pais" value="#{perfilUsuarioMB2.pais}"
-				completeMethod="#{perfilUsuarioMB2.sugerirPaises}" forceSelection="true"
-				converter="paisConverter" var="p" itemLabel="#{p.nombre}" itemValue="#{p}" />
+			
+			<p:outputLabel value="" for="" />
+			
 			
 		</p:panelGrid>
-		<p:commandButton value="Actualizar" action="#{perfilUsuarioMB2.actualizar}" update="@form" />
+		<p:commandButton value="Actualizar" action="#{perfilUsuarioMB2.actualizar3}" update="@form" />
 	</h:form>
 </h:body>
 </html>
