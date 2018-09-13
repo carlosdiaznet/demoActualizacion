@@ -5,9 +5,10 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-@FacesConverter("pais")
+@FacesConverter("paisConverter")
 public class PaisConverter implements Converter {
-
+	
+	//Retorna el objeto completo, recibiendo como parametro el ID o codigo como String
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {
 		if(value != null){
@@ -21,10 +22,15 @@ public class PaisConverter implements Converter {
 		}
 		return null;
 	}
-
+	
+	
+	//Retorna como String el codigo del objeto, ingresando el objeto entero como parametro 
 	@Override
 	public String getAsString(FacesContext context, UIComponent component, Object value) {
-		// TODO Auto-generated method stub
+		if(value != null && !value.equals("")){
+			Pais pais = (Pais) value;
+			return String.valueOf(pais.getCodigo());
+		}
 		return null;
 	}
 
