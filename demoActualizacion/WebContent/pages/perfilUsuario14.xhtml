@@ -17,7 +17,7 @@
 </h:head>
 <h:body>
 	<h:form id="frm">
-		<p:tabView activeIndex="0" orientation="top">
+		<p:tabView activeIndex="0" orientation="top" dynamic="true" cache="false">
 			<p:tab title="Datos personales">
 				<h:panelGrid columns="2" cellpadding="4">
 					<p:outputLabel value="Nombre" for="nombre" />
@@ -44,6 +44,9 @@
 					<p:outputLabel value="Ciudad" for="ciudad" />
 					<p:inputText id="ciudad" size="30" />
 				</h:panelGrid>
+				<h:outputText value="#{dataBean.dateActual}">
+					<f:convertDateTime pattern="HH:mm:ss" />
+				</h:outputText>
 			</p:tab>
 		</p:tabView>
 		
