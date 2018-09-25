@@ -9,7 +9,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-import com.sun.el.parser.ParseException;
+
 
 @ManagedBean(name="funcionarioBean")
 @ViewScoped
@@ -22,9 +22,9 @@ public class FuncionarioBean implements Serializable {
 	
 	private List<Funcionario> funcionarios;
 	
-	public FuncionarioBean() throws ParseException {
+	public FuncionarioBean() {
 		funcionarios = new ArrayList<Funcionario>();
-		for(int i=0;i<50;i++){
+		for(int i=0; i<50; i++){
 			adicionarFuncionario();
 		}
 	}
@@ -34,6 +34,8 @@ public class FuncionarioBean implements Serializable {
 		funcionarios.add(new Funcionario(getMatriculaAleatoria(), nombreCompleto, getFechaAleatoria(), getSalarioAleatorio()));
 	}
 	
+	
+
 	private BigDecimal getSalarioAleatorio(){
 		return new BigDecimal(1000 + (Math.random() * 29000));
 	}

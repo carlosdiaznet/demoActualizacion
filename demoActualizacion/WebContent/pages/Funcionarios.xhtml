@@ -17,8 +17,26 @@
 </h:head>
 <h:body>
 	<h:form id="frm">
-
-		
+		<p:dataTable value="#{funcionarioBean.funcionarios}" var="funcionario" sortBy="#{funcionario.matricula}"
+			sortOrder="ascending" rows="10" paginator="true" paginatorPosition="bottom" rowsPerPageTemplate="10, 20, 30"
+			paginatorAlwaysVisible="false">
+			<p:column headerText="Matricula" sortBy="#{funcionario.matricula}">
+				<h:outputText value="#{funcionario.matricula}" />
+			</p:column>
+			<p:column headerText="Nombre" sortBy="#{funcionario.nombre}">
+				<h:outputText value="#{funcionario.nombre}" />
+			</p:column>
+			<p:column headerText="Fecha de ingreso" sortBy="#{funcionario.fechaIngreso}">
+				<h:outputText value="#{funcionario.fechaIngreso}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</h:outputText>
+			</p:column>
+			<p:column headerText="Salario">
+				<h:outputText value="#{funcionario.salario}">
+					<f:convertNumber type="currency" locale="es_US" />
+				</h:outputText>
+			</p:column>
+		</p:dataTable>
 	</h:form>
 </h:body>
 </html>
