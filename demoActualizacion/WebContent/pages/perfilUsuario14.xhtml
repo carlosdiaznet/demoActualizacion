@@ -43,6 +43,9 @@
 					
 					<p:outputLabel value="Ciudad" for="ciudad" />
 					<p:inputText id="ciudad" size="30" />
+					
+					<p:outputLabel value="Fecha" for="fecha" />
+					<p:calendar id="fecha" />
 				</h:panelGrid>
 				<h:outputText value="#{dataBean.dateActual}">
 					<f:convertDateTime pattern="HH:mm:ss" />

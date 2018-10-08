@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<style>
+	.cel-radio td {
+		text-align:center;
+	}
+</style>
+<title>Demo de actualizacion de menu</title>
+<h:outputStylesheet name="estilos.css" library="css" />
+</h:head>
+<h:body>
+	<h:form id="frm">
+		<p:messages autoUpdate="true" for="destinoError" />
+		<p:growl autoUpdate="true" for="destinoAviso" />
+		
+		<p:commandButton value="Adicionar mensaje de error" id="destinoError"
+			action="#{messageBean.adicionarMensajeError}" />
+		
+		<p:commandButton value="Adicionar mensaje de aviso" id="destinoAviso" />
+	</h:form>
+</h:body>
+</html>
