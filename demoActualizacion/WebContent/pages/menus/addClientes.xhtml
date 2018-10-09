@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+<title>Demo de ejemplo Dialogo</title>
+<h:outputStylesheet name="estilos.css" library="css" />
+</h:head>
+<h:body>
+	
+	<h:form id="frm">
+		<p:button value="Agregar clientes" onclick="PF('incluirCliente').show(); return false;" />
+		
+		<p:dataTable value="#{clientesMB.clientes}" var="cliente" id="clienteTable" emptyMessage="No hay clientes">
+			<p:column headerText="Cliente">
+				<h:outputText value="#{cliente}" />
+			</p:column>
+		</p:dataTable>
+			
+		<p:dialog header="Agregar cliente" widgetVar="incluirCliente" modal="true" resizable="false">
+			<h:panelGroup id="incluirPanel">
+				<p:messages />
+				<h:panelGrid columns="2">
+					<p:outputLabel value="Nombre" />
+					<p:inputText value="#{clientesMB.nombreCliente}" required="true" requiredMessage="Agregar un cliente" />
+				</h:panelGrid>
+				
+				<p:commandButton value="Incluir" action="#{clientesMB.incluirCliente}"
+					update="clienteTable incluirPanel" />
+			</h:panelGroup>
+		</p:dialog>
+	</h:form>
+</h:body>
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+<title>Demo de ejemplo Dialogo</title>
+<h:outputStylesheet name="estilos.css" library="css" />
+</h:head>
+<h:body>
+	<h:form id="frm">
+		<p:button value="Mostrar" onclick="PF('menuDialogo').show(); return false;" />
+		<p:button value="Mostrar" onclick="PF('menuDialogo').hide(); return false;" />
+		<br />
+		<p:commandButton type="button" value="Mostrar 2" onclick="PF('menuDialogo').show();" />
+		
+		<p:dialog header="Menu dialogo" widgetVar="menuDialogo" minHeight="40" minimizable="true"
+			maximizable="true">
+			Contenido de dialogo
+		</p:dialog>
+	</h:form>
+</h:body>
+</html>

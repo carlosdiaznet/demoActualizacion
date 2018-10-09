@@ -12,7 +12,8 @@ public class MessageBean {
 	public void adicionarMensajeError(){
 		FacesContext context = FacesContext.getCurrentInstance();
 		
-		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_WARN, "Resumen de mensaje de error", "Mensaje de error completo");
+		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_WARN, "Resumen de mensaje de error", 
+				"Mensaje de error completo");
 		
 		context.addMessage("destinoError", msg);
 	}
@@ -20,8 +21,9 @@ public class MessageBean {
 	public void adicionarMensajeAviso(){
 		FacesContext context = FacesContext.getCurrentInstance();
 		
-		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_WARN, "Resumen de mensaje de error", "Mensaje de error completo");
+		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Resumen de mensaje de aviso", 
+				"Mensaje de aviso completo");
 		
-		context.addMessage(null, msg);
+		context.addMessage("destinoAviso", msg);
 	}
 }

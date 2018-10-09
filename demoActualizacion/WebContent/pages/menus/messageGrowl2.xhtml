@@ -17,13 +17,14 @@
 </h:head>
 <h:body>
 	<h:form id="frm">
-		<p:messages autoUpdate="true" for="destinoError" />
-		<p:growl autoUpdate="true" for="destinoAviso" />
+		<p:messages for="destinoError" id="msgError" />
+		<p:growl for="destinoAviso" id="grwAviso" />
 		
 		<p:commandButton value="Adicionar mensaje de error" id="destinoError"
-			action="#{messageBean.adicionarMensajeError}" />
+			action="#{messageBean.adicionarMensajeError}" update="msgError" />
 		
-		<p:commandButton value="Adicionar mensaje de aviso" id="destinoAviso" />
+		<p:commandButton value="Adicionar mensaje de aviso" id="destinoAviso"
+			action="#{messageBean.adicionarMensajeAviso}" update="grwAviso" />
 	</h:form>
 </h:body>
 </html>
