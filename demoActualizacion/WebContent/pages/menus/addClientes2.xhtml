@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+<title>Demo de ejemplo Dialogo</title>
+<h:outputStylesheet name="estilos.css" library="css" />
+</h:head>
+<h:body>
+	
+	<h:form id="frm">
+		<p:dataTable value="#{productosBean.productos}" var="producto" id="productoTable"
+			emptyMessage="No hay productos">
+			<p:column headerText="Producto">
+				<h:outputText value="#{producto}" />
+			</p:column>
+			<p:column width="40">
+				<p:commandButton icon="ui-icon-trash" oncomplete="PF('confirmacion').show();">
+					<f:setPropertyActionListener value="#{producto}" target="#{productosBean.productoSeleccionado}" />
+				</p:commandButton>
+			</p:column>
+		</p:dataTable>
+		
+		<p:confirmDialog header="Excluir producto" message="Seguro de borrar producto?" widgetVar="confirmacion">
+			<p:commandButton value="Si" update="productoTable"
+				oncomplete="PF('confirmacion').hide();" action="#{productosBean.excluirProducto}" />
+				<p:button value="No" onclick="PF('confirmacion').hide(); return false;" />
+		</p:confirmDialog>
+	</h:form>
+</h:body>
+</html>
