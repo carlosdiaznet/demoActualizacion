@@ -1,11 +1,15 @@
 package sv.gob.cnr.cdi;
 
+import javax.inject.Inject;
 import javax.inject.Named;
 
-@Named
+@Named("precioMB")
 public class PrecioProductoBean {
 	
+	@Inject
+	private CalculadoraPrecio calculadora;
+	
 	public double getPrecio(){
-		return 10.45;
+		return calculadora.calcularPrecio(12, 45.25);
 	}
 }
