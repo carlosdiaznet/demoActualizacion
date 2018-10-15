@@ -17,7 +17,8 @@
 </h:head>
 <h:body>
 	<h:form id="frm">
-		<p:outputLabel value="el  precio es: #{precioMB.precio}" />
+		<p:inputText value="#{envioMensajeBean.texto}" />
+		<p:commandButton value="Enviar Mensaje" action="#{envioMensajeBean.enviarMensaje}" />
 
 	</h:form>
 </h:body>

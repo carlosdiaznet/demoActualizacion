@@ -1,36 +1,49 @@
 package sv.gob.cnr.cdi;
 
 
-import java.io.Serializable;
-
 import javax.annotation.PostConstruct;
-import javax.ejb.EJB;
-import javax.enterprise.context.SessionScoped;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import sv.gob.cnr.service.CalculadoraPrecio;
 
 @Named("precioMB")
-@SessionScoped
-public class PrecioProductoBean implements Serializable {
+@RequestScoped
+public class PrecioProductoBean {
 	
-	private static final long serialVersionUID = 1L;
 
 	private double precio;
 	
-	@EJB
+	
 	private CalculadoraPrecio calculadora;
 	
 
 	@PostConstruct
 	public void init(){
-		System.out.println("Iniciando init");
-		this.calculadora = new CalculadoraPrecio();
+		System.out.println("Instancia PrecioProductoBean");
 	}
 
 	public double getPrecio() {
-		this.precio = calculadora.calcularPrecio(12, 23.25);
+		this.precio = calculadora.calcularPrecio(12, 44.55);
 		return precio;
+	}
+	
+	
+	
+	
+	public PrecioProductoBean() {
+	}
+	
+	@Inject
+	public PrecioProductoBean(CalculadoraPrecio calculadora) {
+		System.out.println("Constructor: " + calculadora);
+		this.calculadora = calculadora;
+	}
+
+	public void setCalculadora(CalculadoraPrecio calculadora){
+		System.out.println("setCalculadora: " + calculadora);
+		this.calculadora = calculadora;
 	}
 
 	
