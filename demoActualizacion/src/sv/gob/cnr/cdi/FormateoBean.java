@@ -5,12 +5,19 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
+
+import sv.gob.cnr.service.ElSalvador;
 
 @Named
 @RequestScoped
 public class FormateoBean {
-	private DateFormat formatoDato = new SimpleDateFormat("dd-MMMM-yyyy");
+	
+	//private DateFormat formatoDato = new SimpleDateFormat("dd-MMMM-yyyy");
+	@Inject @ElSalvador
+	private DateFormat formatoDato;
+	
 	private Date datoDesconocido;
 	private String datoFormato;
 	

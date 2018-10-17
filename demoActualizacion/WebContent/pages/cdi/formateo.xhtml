@@ -20,7 +20,8 @@
 		<p:calendar value="#{formateoBean.datoDesconocido}" pattern="dd/MM/yyyy" />
 		<p:commandButton value="Enviar" action="#{formateoBean.enviar}" update="@form" />
 		<br />
-		<h:outputText value="#{formateoBean.datoFormato}" />
+		
+		<p:outputLabel value="#{formateoBean.datoFormato}" />
 	</h:form>
 </h:body>
 </html>
