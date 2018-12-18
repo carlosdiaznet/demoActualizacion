@@ -13,6 +13,57 @@
 <h:body>
 	<h:form>
 		<p:growl id="msgs" showDetail="true" />
+		
+		<h3 style="margin-top:0">Home examples</h3>
+		<p:panelGrid columns="2">
+		    <f:facet name="header">perfilUsuario</f:facet>
+		    
+		    <p:button outcome="pages/perfilUsuario.xhtml" value="perfilUsuario" />
+		    <h:outputText value="Validacion de password" />
+		     
+		    <p:button outcome="pages/perfilUsuario2.xhtml" value="perfilUsuario2" />
+		    <h:outputText value="Validacion de campo nombre y conteo de caracteres permitidos" />
+		     
+		    <p:button outcome="pages/perfilUsuario3.xhtml" value="perfilUsuario3" />
+		    <h:outputText value="Validacion del campo calendario" />
+		     
+		   	<p:button outcome="pages/perfilUsuario4.xhtml" value="perfilUsuario4" />
+		    <h:outputText value="Paso de valores a consola de listas seleccionables" />
+		    
+		    <p:button outcome="pages/perfilUsuario5.xhtml" value="perfilUsuario5" />
+		    <h:outputText value="Paso de valores desde selectOneMenu" />
+		    
+		    <p:button outcome="pages/perfilUsuario6.xhtml" value="perfilUsuario6" />
+		    <h:outputText value="Paso de valores con selectOneMenu e iconos png" />
+		    
+		    <p:button outcome="pages/perfilUsuario7.xhtml" value="perfilUsuario7" />
+		    <h:outputText value="Uso de listas seleccionables dependiente una de la anterior" />
+		    
+		    <p:button outcome="pages/perfilUsuario8.xhtml" value="perfilUsuario8" />
+		    <h:outputText value="Uso de option y paso de valores validados" />
+		    
+		    <p:button outcome="pages/perfilUsuario9.xhtml" value="perfilUsuario9" />
+		    <h:outputText value="Uso de checklist y paso de valores, validados" />
+		    
+		    <p:button outcome="pages/perfilUsuario10.xhtml" value="perfilUsuario10" />
+		    <h:outputText value="Paso de valor desde una lista" />
+		    
+		    <p:button outcome="pages/perfilUsuario11.xhtml" value="perfilUsuario11" />
+		    <h:outputText value="Actualizacion ajax de un campo de texto, sugerencias de busqueda" />
+		    
+		    <p:button outcome="pages/perfilUsuario12.xhtml" value="perfilUsuario12" />
+		    <h:outputText value="Uso de mascaras de entradas en PF" />
+		    
+		    <p:button outcome="pages/perfilUsuario13.xhtml" value="perfilUsuario13" />
+		    <h:outputText value="Uso de checkbox con false o true" />
+		    
+		    <p:button outcome="pages/perfilUsuario14.xhtml" value="perfilUsuario14" />
+		    <h:outputText value="Uso de pestañas de entrada de datos" />
+		    
+		    <p:button outcome="pages/registroUsuario1.xhtml" value="registroUsuario1" />
+		    <h:outputText value="Actualizacion ajax de un campo de texto, sugerencias de busqueda" />
+		</p:panelGrid>
+		
 		<p:panel header="Seleccione una localidad" style="margin-bottom:10px;">
 			<h:panelGrid columns="2" cellpadding="5">
 				<p:outputLabel for="pais" value="Pais: " />
