@@ -7,6 +7,14 @@ public class Marca {
 	private Integer cantidad;
 	private Double precio;
 	
+	
+	public Marca(Integer id, String marca, Integer cantidad, Double precio) {
+		this.id = id;
+		this.marca = marca;
+		this.cantidad = cantidad;
+		this.precio = precio;
+	}
+	
 	public Integer getId() {
 		return id;
 	}

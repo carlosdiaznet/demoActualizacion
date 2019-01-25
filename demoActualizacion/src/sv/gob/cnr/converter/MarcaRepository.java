@@ -4,6 +4,7 @@ import java.util.List;
 
 public class MarcaRepository {
 	private List<Marca> listMarca;
+	/*
 	private Marca marca = new Marca();
 	
 	public MarcaRepository() {
@@ -31,7 +32,7 @@ public class MarcaRepository {
 		this.marca.setPrecio(25.68);
 		this.listMarca.add(marca);
 	}
-	
+	*/
 	public List<Marca> getListMarca() {
 		return listMarca;
 	}

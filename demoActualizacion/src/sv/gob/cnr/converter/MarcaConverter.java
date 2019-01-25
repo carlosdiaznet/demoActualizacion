@@ -1,5 +1,6 @@
 package sv.gob.cnr.converter;
 
+import javax.el.ValueExpression;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -10,16 +11,19 @@ public class MarcaConverter implements Converter {
 
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {
-		if(value != null){
-			Integer id = Integer.parseInt(value);
-		}
-		return null;
+		ValueExpression vex = context.getApplication()
+				.getExpressionFactory()
+					.createValueExpression(context.getELContext(), "#{marcaMB}", MarcaMB.class);
+		MarcaMB marcas = (MarcaMB)vex.getValue(context.getELContext());
+		return marcas.getMarca(Integer.valueOf(value));
 	}
 
 	@Override
 	public String getAsString(FacesContext context, UIComponent component, Object value) {
-		// TODO Auto-generated method stub
-		return null;
+		if(value == null){
+			return null;
+		}
+		return ((Marca) value).getId().toString();
 	}
 
 }

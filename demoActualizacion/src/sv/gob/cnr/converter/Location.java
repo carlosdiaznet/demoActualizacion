@@ -5,6 +5,8 @@ public class Location {
 	private String ciudad;
 	private String pais;
 	private Integer numero;
+	
+	
 	public String getDireccion() {
 		return direccion;
 	}

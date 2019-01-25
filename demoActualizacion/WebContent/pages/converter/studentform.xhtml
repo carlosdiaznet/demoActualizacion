@@ -24,15 +24,14 @@
 			<p:inputText id="student" value="#{studentForm.student}"
 				converter="stdcon" />
 			<p:outputLabel value="Marca" for="marca" />
-			<p:selectOneMenu id="marca" value="#{studentForm.marca}">
+			<p:selectOneMenu id="marca" value="#{marcaMB.marcaSeleccionada}" converter="marcaconverter">
 				<f:selectItem noSelectionOption="true" itemLabel="Seleccione..." itemValue="#{null}" />
-				<f:selectItem itemLabel="HP" itemValue="1" />
-				<f:selectItem itemLabel="Dell" itemValue="2" />
-				<f:selectItem itemLabel="Toshiba" itemValue="3" />
-				<f:selectItem itemLabel="Lenovo" itemValue="4" />
+				<f:selectItems value="#{marcaMB.marcas}" var="marca" itemLabel="#{marca.marca}"
+					 itemValue="#{marca}" />
 			</p:selectOneMenu>
 		</p:panelGrid>
 		<p:commandButton value="Submit" action="#{studentForm.changeStudentData()}" update="@form :frm" />
+		<p:outputLabel value="La marca seleccionada: #{marcaMB.marcaSeleccionada.id}" />
 	</h:form>
 </h:body>
 </html>

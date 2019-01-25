@@ -18,7 +18,7 @@ public class StudentMB implements Serializable {
 		System.out.println("funcion student");
 		this.student.setName(this.student.getName().toUpperCase());
 		this.student.setCollege(this.student.getCollege().toUpperCase());
-		System.out.println(marca.getPrecio());
+		//System.out.println(marca.getPrecio());
 		
 		return "studentform";
 	}
