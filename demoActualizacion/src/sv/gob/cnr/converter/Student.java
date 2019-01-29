@@ -4,6 +4,7 @@ public class Student {
 	private String name;
 	private Integer age;
 	private String college;
+	private Marca marca;
 	
 	
 	public String getName() {
@@ -23,6 +24,12 @@ public class Student {
 	}
 	public void setCollege(String college) {
 		this.college = college;
+	}
+	public Marca getMarca() {
+		return marca;
+	}
+	public void setMarca(Marca marca) {
+		this.marca = marca;
 	}
 	
 	

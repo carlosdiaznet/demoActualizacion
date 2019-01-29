@@ -12,12 +12,13 @@ public class StudentMB implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Student student; 
-	private Marca marca;
+	
 	
 	public String changeStudentData(){
 		System.out.println("funcion student");
 		this.student.setName(this.student.getName().toUpperCase());
 		this.student.setCollege(this.student.getCollege().toUpperCase());
+		
 		//System.out.println(marca.getPrecio());
 		
 		return "studentform";
@@ -29,14 +30,6 @@ public class StudentMB implements Serializable {
 
 	public void setStudent(Student student) {
 		this.student = student;
-	}
-
-	public Marca getMarca() {
-		return marca;
-	}
-
-	public void setMarca(Marca marca) {
-		this.marca = marca;
 	}
 
 	
